@@ -20,7 +20,6 @@ const keyboard = {
 	currentLang: ''
 };
 
-//let choiceOfLanguage = prompt('Введите число соответственно языку en - 0, ru - 1, ua - 2', '');
 function enteringNumber(choiceOfLanguage){
 	if (choiceOfLanguage !== null){
 		if (choiceOfLanguage >= 0 && choiceOfLanguage <=2){
@@ -42,24 +41,28 @@ function enteringNumber(choiceOfLanguage){
 };
 enteringNumber(prompt('Введите число соответственно языку en - 0, ru - 1, ua - 2', ''));
 
-
-
-for (let key in keyboard){
-	console.log(`${key}: ${keyboard[key]}`);
-	//console.log( Object.keys(keyboard));
-};
-
- console.log(Object.keys(keyboard.layouts.en));
 function getRandCharInAlph(){
+	var array = [];
+	let letter;
 	if (keyboard['currentLang'] === '0 это en'){
-		console.log(keyboard.layouts.en);
-		// for (let i = 0; i < keyboard.length; i++){	
-		// 	for (let j = 0; j < keyboard.length + 9; j++){
-		// };
+		for (let key in keyboard.layouts.en){
+			array.push(keyboard.layouts.en[key]);
+		};
+		letter = array[Math.floor(Math.random() * array.length)][Math.floor(Math.random() * (array.length + 9))];		
+		return console.log(letter);			
+
 	}else if (keyboard['currentLang'] === '1 это ru'){
-		console.log(keyboard.layouts.ru);
+		for (let key in keyboard.layouts.ru){
+			array.push(keyboard.layouts.ru[key]);
+		};
+		letter = array[Math.floor(Math.random() * array.length)][Math.floor(Math.random() * (array.length + 9))];		
+		return console.log(letter);
 	}else {
-		console.log(keyboard.layouts.ua);
+		for (let key in keyboard.layouts.ua){
+			array.push(keyboard.layouts.ua[key]);
+		};
+		letter = array[Math.floor(Math.random() * array.length)][Math.floor(Math.random() * (array.length + 9))];		
+		return console.log(letter);
 	}
 };
 getRandCharInAlph();
